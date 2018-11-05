@@ -21,4 +21,365 @@ spec:
           name: sa-logic
           ports:
             - containerPort: 5000
+               ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 10.9 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ➤ SSH session to ubuntu@54.209.142.227                             │
+     │   • SSH compression : ✔                                            │
+     │   • SSH-browser     : ✔                                            │
+     │   • X11-forwarding  : ✔  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : ✔  (automatically set on remote server)      │
+     │                                                                    │
+     │ ➤ For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1021-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sun Nov  4 17:55:05 UTC 2018
+
+
+Last login: Sun Nov  4 15:45:35 2018 from 70.122.203.42
+ubuntu@ip-172-31-37-215:~$ sudo su
+root@ip-172-31-37-215:/home/ubuntu# clear
+root@ip-172-31-37-215:/home/ubuntu# kubectl proxy
+Starting to serve on 127.0.0.1:8001
+^C
+root@ip-172-31-37-215:/home/ubuntu# kubectl describe nodes
+Name:               ip-172-20-47-167.ec2.internal
+Roles:              master
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=t2.micro
+                    beta.kubernetes.io/os=linux
+                    failure-domain.beta.kubernetes.io/region=us-east-1
+                    failure-domain.beta.kubernetes.io/zone=us-east-1a
+                    kops.k8s.io/instancegroup=master-us-east-1a
+                    kubernetes.io/hostname=ip-172-20-47-167.ec2.internal
+                    kubernetes.io/role=master
+                    node-role.kubernetes.io/master=
+Annotations:        node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 02 Nov 2018 19:44:04 +0000
+Taints:             node-role.kubernetes.io/master:NoSchedule
+Unschedulable:      false
+Conditions:
+  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----                 ------  -----------------                 ------------------                ------                       -------
+  NetworkUnavailable   False   Fri, 02 Nov 2018 19:44:06 +0000   Fri, 02 Nov 2018 19:44:06 +0000   RouteCreated                 RouteController created a route
+  OutOfDisk            False   Sun, 04 Nov 2018 18:51:33 +0000   Fri, 02 Nov 2018 19:44:04 +0000   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure       False   Sun, 04 Nov 2018 18:51:33 +0000   Fri, 02 Nov 2018 19:44:04 +0000   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure         False   Sun, 04 Nov 2018 18:51:33 +0000   Fri, 02 Nov 2018 19:44:04 +0000   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure          False   Sun, 04 Nov 2018 18:51:33 +0000   Fri, 02 Nov 2018 19:44:04 +0000   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready                True    Sun, 04 Nov 2018 18:51:33 +0000   Sat, 03 Nov 2018 08:29:06 +0000   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:   172.20.47.167
+  ExternalIP:   34.201.110.70
+  InternalDNS:  ip-172-20-47-167.ec2.internal
+  ExternalDNS:  ec2-34-201-110-70.compute-1.amazonaws.com
+  Hostname:     ip-172-20-47-167.ec2.internal
+Capacity:
+ cpu:                1
+ ephemeral-storage:  62837052Ki
+ hugepages-2Mi:      0
+ memory:             1018716Ki
+ pods:               110
+Allocatable:
+ cpu:                1
+ ephemeral-storage:  57910627028
+ hugepages-2Mi:      0
+ memory:             916316Ki
+ pods:               110
+System Info:
+ Machine ID:                 a9e799e7fed24568b2c28ab23f298f2e
+ System UUID:                EC26B1B7-0307-21CB-CE9C-D3558FCF6FDB
+ Boot ID:                    314689df-5e41-41a2-be85-94680db55445
+ Kernel Version:             4.4.148-k8s
+ OS Image:                   Debian GNU/Linux 8 (jessie)
+ Operating System:           linux
+ Architecture:               amd64
+ Container Runtime Version:  docker://17.3.2
+ Kubelet Version:            v1.10.6
+ Kube-Proxy Version:         v1.10.6
+PodCIDR:                     100.96.0.0/24
+ProviderID:                  aws:///us-east-1a/i-0655afc94241b083e
+Non-terminated Pods:         (7 in total)
+  Namespace                  Name                                                     CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ---------                  ----                                                     ------------  ----------  ---------------  -------------
+  kube-system                dns-controller-6d6b7f78b-l4j6q                           50m (5%)      0 (0%)      50Mi (5%)        0 (0%)
+  kube-system                etcd-server-events-ip-172-20-47-167.ec2.internal         100m (10%)    0 (0%)      0 (0%)           0 (0%)
+  kube-system                etcd-server-ip-172-20-47-167.ec2.internal                200m (20%)    0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-apiserver-ip-172-20-47-167.ec2.internal             150m (15%)    0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-controller-manager-ip-172-20-47-167.ec2.internal    100m (10%)    0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-proxy-ip-172-20-47-167.ec2.internal                 100m (10%)    0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-scheduler-ip-172-20-47-167.ec2.internal             100m (10%)    0 (0%)      0 (0%)           0 (0%)
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource  Requests    Limits
+  --------  --------    ------
+  cpu       800m (80%)  0 (0%)
+  memory    50Mi (5%)   0 (0%)
+Events:     <none>
+
+
+Name:               ip-172-20-59-152.ec2.internal
+Roles:              node
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=t2.micro
+                    beta.kubernetes.io/os=linux
+                    failure-domain.beta.kubernetes.io/region=us-east-1
+                    failure-domain.beta.kubernetes.io/zone=us-east-1a
+                    kops.k8s.io/instancegroup=nodes
+                    kubernetes.io/hostname=ip-172-20-59-152.ec2.internal
+                    kubernetes.io/role=node
+                    node-role.kubernetes.io/node=
+Annotations:        node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 02 Nov 2018 19:45:04 +0000
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----                 ------  -----------------                 ------------------                ------                       -------
+  NetworkUnavailable   False   Fri, 02 Nov 2018 19:45:06 +0000   Fri, 02 Nov 2018 19:45:06 +0000   RouteCreated                 RouteController created a route
+  OutOfDisk            False   Sun, 04 Nov 2018 18:51:34 +0000   Fri, 02 Nov 2018 19:45:04 +0000   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure       False   Sun, 04 Nov 2018 18:51:34 +0000   Fri, 02 Nov 2018 19:45:04 +0000   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure         False   Sun, 04 Nov 2018 18:51:34 +0000   Fri, 02 Nov 2018 19:45:04 +0000   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure          False   Sun, 04 Nov 2018 18:51:34 +0000   Fri, 02 Nov 2018 19:45:04 +0000   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready                True    Sun, 04 Nov 2018 18:51:34 +0000   Fri, 02 Nov 2018 19:45:24 +0000   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:   172.20.59.152
+  ExternalIP:   54.174.99.82
+  InternalDNS:  ip-172-20-59-152.ec2.internal
+  ExternalDNS:  ec2-54-174-99-82.compute-1.amazonaws.com
+  Hostname:     ip-172-20-59-152.ec2.internal
+Capacity:
+ cpu:                1
+ ephemeral-storage:  125749636Ki
+ hugepages-2Mi:      0
+ memory:             1018716Ki
+ pods:               110
+Allocatable:
+ cpu:                1
+ ephemeral-storage:  115890864346
+ hugepages-2Mi:      0
+ memory:             916316Ki
+ pods:               110
+System Info:
+ Machine ID:                 5449710dfd9a4750954eb8846dec49f7
+ System UUID:                EC2794AA-52B3-5F0A-9DB3-F3C9A7C129EA
+ Boot ID:                    d2ae5398-40cb-4cee-88a2-6cb25599abb2
+ Kernel Version:             4.4.148-k8s
+ OS Image:                   Debian GNU/Linux 8 (jessie)
+ Operating System:           linux
+ Architecture:               amd64
+ Container Runtime Version:  docker://17.3.2
+ Kubelet Version:            v1.10.6
+ Kube-Proxy Version:         v1.10.6
+PodCIDR:                     100.96.1.0/24
+ProviderID:                  aws:///us-east-1a/i-0a8ccc40cf46e3289
+Non-terminated Pods:         (12 in total)
+  Namespace                  Name                                        CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ---------                  ----                                        ------------  ----------  ---------------  -------------
+  default                    sa-frontend-5b57db4b7b-644tl                10m (1%)      0 (0%)      0 (0%)           0 (0%)
+  default                    sa-frontend-5b57db4b7b-v8cvn                10m (1%)      0 (0%)      0 (0%)           0 (0%)
+  default                    sa-logic-7cd6fc577d-4f9dn                   100m (10%)    0 (0%)      0 (0%)           0 (0%)
+  default                    sa-logic-7cd6fc577d-lglnb                   100m (10%)    0 (0%)      0 (0%)           0 (0%)
+  default                    sa-web-app-bc8858b45-c2k8v                  10m (1%)      0 (0%)      0 (0%)           0 (0%)
+  default                    sa-web-app-bc8858b45-m89t4                  10m (1%)      0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-dns-5fbcb4d67b-ptn86                   260m (26%)    0 (0%)      110Mi (12%)      170Mi (18%)
+  kube-system                kube-dns-5fbcb4d67b-wvfj4                   260m (26%)    0 (0%)      110Mi (12%)      170Mi (18%)
+  kube-system                kube-dns-autoscaler-6874c546dd-cdv8s        20m (2%)      0 (0%)      10Mi (1%)        0 (0%)
+  kube-system                kube-proxy-ip-172-20-59-152.ec2.internal    100m (10%)    0 (0%)      0 (0%)           0 (0%)
+  kube-system                kubernetes-dashboard-7b9c7bc8c9-pnvkf       0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  monitoring                 prometheus-deployment-7c8fdf9b89-mlvbz      0 (0%)        0 (0%)      0 (0%)           0 (0%)
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource  Requests     Limits
+  --------  --------     ------
+  cpu       880m (88%)   0 (0%)
+  memory    230Mi (25%)  340Mi (37%)
+Events:     <none>
+root@ip-172-31-37-215:/home/ubuntu#
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+
+Network error: Software caused connection abort
+Authenticating with public key "Imported-Openssh-Key: C:\Users\Bhavna\Downloads\VirginiaRHEL.pem"
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 10.9 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ➤ SSH session to ubuntu@54.209.142.227                             │
+     │   • SSH compression : ✔                                            │
+     │   • SSH-browser     : ✔                                            │
+     │   • X11-forwarding  : ✔  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : ✔  (automatically set on remote server)      │
+     │                                                                    │
+     │ ➤ For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1021-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov  5 05:55:49 UTC 2018
+
+
+Last login: Sun Nov  4 17:55:06 2018 from 70.122.203.42
+ubuntu@ip-172-31-37-215:~$ sudo su
+root@ip-172-31-37-215:/home/ubuntu# ls
+clusterrole.yaml  config-map.yaml  prometheus-deployment.yaml  prometheus-service.yaml  snap
+root@ip-172-31-37-215:/home/ubuntu#
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+
+Network error: Software caused connection abort
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+
+Network error: No route to host
+Authenticating with public key "Imported-Openssh-Key: C:\Users\Bhavna\Downloads\VirginiaRHEL.pem"
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 10.9 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ➤ SSH session to ubuntu@54.209.142.227                             │
+     │   • SSH compression : ✔                                            │
+     │   • SSH-browser     : ✔                                            │
+     │   • X11-forwarding  : ✔  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : ✔  (automatically set on remote server)      │
+     │                                                                    │
+     │ ➤ For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1021-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov  5 06:00:26 UTC 2018
+
+
+Last login: Mon Nov  5 05:55:50 2018 from 70.122.203.42
+ubuntu@ip-172-31-37-215:~$ sudo su
+root@ip-172-31-37-215:/home/ubuntu# ls
+clusterrole.yaml  config-map.yaml  prometheus-deployment.yaml  prometheus-service.yaml  snap
+root@ip-172-31-37-215:/home/ubuntu# cd /
+root@ip-172-31-37-215:/# ls
+bin   dev  home        initrd.img.old  lib64       manifests  mnt  proc  run   snap  sys  usr  vmlinuz
+boot  etc  initrd.img  lib             lost+found  media      opt  root  sbin  srv   tmp  var  vmlinuz.old
+root@ip-172-31-37-215:/# cd ~
+root@ip-172-31-37-215:~# ls
+snap
+root@ip-172-31-37-215:~# cd /home/bhavana
+bash: cd: /home/bhavana: No such file or directory
+root@ip-172-31-37-215:~# cd /
+root@ip-172-31-37-215:/# cd /home/ubuntu
+root@ip-172-31-37-215:/home/ubuntu# kubectl get pods
+NAME                           READY   STATUS    RESTARTS   AGE
+sa-frontend-5b57db4b7b-644tl   1/1     Running   0          1d
+sa-frontend-5b57db4b7b-v8cvn   1/1     Running   0          1d
+sa-logic-7cd6fc577d-4f9dn      1/1     Running   0          1d
+sa-logic-7cd6fc577d-lglnb      1/1     Running   0          1d
+sa-web-app-bc8858b45-c2k8v     1/1     Running   0          1d
+sa-web-app-bc8858b45-m89t4     1/1     Running   0          1d
+root@ip-172-31-37-215:/home/ubuntu# ls
+clusterrole.yaml  config-map.yaml  prometheus-deployment.yaml  prometheus-service.yaml  snap
+root@ip-172-31-37-215:/home/ubuntu# cd ..
+root@ip-172-31-37-215:/home# ls
+ubuntu
+root@ip-172-31-37-215:/home# cd /
+root@ip-172-31-37-215:/# ls
+bin   dev  home        initrd.img.old  lib64       manifests  mnt  proc  run   snap  sys  usr  vmlinuz
+boot  etc  initrd.img  lib             lost+found  media      opt  root  sbin  srv   tmp  var  vmlinuz.old
+root@ip-172-31-37-215:/# cd ..
+root@ip-172-31-37-215:/# ls
+bin   dev  home        initrd.img.old  lib64       manifests  mnt  proc  run   snap  sys  usr  vmlinuz
+boot  etc  initrd.img  lib             lost+found  media      opt  root  sbin  srv   tmp  var  vmlinuz.old
+root@ip-172-31-37-215:/# grep *.yaml
+^X^C
+root@ip-172-31-37-215:/# ls *.yaml
+ls: cannot access '*.yaml': No such file or directory
+root@ip-172-31-37-215:/# find *.yaml
+find: ‘*.yaml’: No such file or directory
+root@ip-172-31-37-215:/# find -name "sa-*"
+./manifests/sa-logic-deployment.yaml
+./manifests/sa-webapp-deployment.yaml
+./manifests/sa-frontend-deployment.yaml
+./manifests/sa-frontend-lb.yaml
+root@ip-172-31-37-215:/# cd ~
+root@ip-172-31-37-215:~# cd manifests
+bash: cd: manifests: No such file or directory
+root@ip-172-31-37-215:~# ls
+snap
+root@ip-172-31-37-215:~# cd /
+root@ip-172-31-37-215:/# ls
+bin   dev  home        initrd.img.old  lib64       manifests  mnt  proc  run   snap  sys  usr  vmlinuz
+boot  etc  initrd.img  lib             lost+found  media      opt  root  sbin  srv   tmp  var  vmlinuz.old
+root@ip-172-31-37-215:/# cd manifests
+root@ip-172-31-37-215:/manifests# ls
+sa-frontend-deployment.yaml  sa-frontend-lb.yaml  sa-logic-deployment.yaml  sa-webapp-deployment.yaml  service-sa-logic.yaml  service-sa-webapp-lb.yaml
+root@ip-172-31-37-215:/manifests# vi sa-frontend-deployment.yaml
+root@ip-172-31-37-215:/manifests# vi sa-frontend-deployment.yaml
+root@ip-172-31-37-215:/manifests# vi sa-frontend-lb.yaml
+root@ip-172-31-37-215:/manifests# vi sa-logic-deployment.yaml
+root@ip-172-31-37-215:/manifests# vi sa-webapp-deployment.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sa-web-app
+spec:
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: sa-web-app
+    spec:
+      containers:
+      - image: bhavanan/sa-webapp
+        imagePullPolicy: Always
+        name: sa-webapp
+        env:
+          - name: SA_LOGIC_API_URL
+            value: "http://sa-logic"
+        ports:
+          - containerPort: 8181
+        resources:
+          requests:
+            cpu: 10m
+~
+~
+~
+~
+~
+~
+~
+~
+
 

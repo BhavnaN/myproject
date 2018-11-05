@@ -24,3 +24,7 @@ spec:
             value: "http://sa-logic"
         ports:
           - containerPort: 8181
+        resources:
+            requests:
+              cpu: 10m
+

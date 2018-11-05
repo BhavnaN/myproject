@@ -21,3 +21,6 @@ spec:
           name: sa-frontend
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: 10m
